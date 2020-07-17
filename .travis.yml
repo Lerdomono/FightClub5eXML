@@ -14,4 +14,4 @@ script:
     - xmlstarlet val -e -s Utilities/compendium.xsd FightClub5eXML/Sources/*.xml
     - for i in Collections/*.xml; do xsltproc -o FightClub5eXML/$i Utilities/merge.xslt $i; done
 after_success:
-    - if [ $TRAVIS_BRANCH = master ] && [ $TRA|VIS_PULL_REQUEST = false ]; then dropbox-deployment; else echo "Skip deploy for PR or Branch Validation"; fi
+    - dropbox-deployment
